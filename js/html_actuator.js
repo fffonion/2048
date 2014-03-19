@@ -6,7 +6,7 @@ function HTMLActuator() {
 
   this.score = 0;
 }
-var elements = new Array("H","He","Be","O","S","Ge","Gd");
+var elements = new Array("H","He","Be","O","S","Ge","Gd","Ubo","Bph","Qbu","Unbq","Bnqh");
 var logbase2 = Math.log(2);
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
