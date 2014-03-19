@@ -6,7 +6,8 @@ function HTMLActuator() {
 
   this.score = 0;
 }
-
+var elements = new Array("H","He","Be","O","S","Ge","Gd");
+var logbase2 = Math.log(2);
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
@@ -57,12 +58,13 @@ HTMLActuator.prototype.addTile = function (tile) {
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + tile.value, positionClass];
 
-  if (tile.value > 2048) classes.push("tile-super");
+  if (tile.value > 64) classes.push("tile-super");
 
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  inner.textContent = elements[Math.log(tile.value)/logbase2];
+  //inner.textContent = tile.value;
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
